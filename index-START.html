@@ -42,12 +42,17 @@
     voices = this.getVoices();
     console.log(voices);
     const voiceOptions = voices
-      .map(voice => `<option value="${voice.name}"> ${voice.name} (${voice.lang})</option>`)
+      .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
       .join('');
       voicesDropdown.innerHTML = voiceOptions;
   }
 
+  function setVoice(){
+    console.log("changing voice");
+  }
+
   speechSynthesis.addEventListener("voiceschanged", populateVoices);
+  voicesDropdown.addEventListener("change", setVoice);
 </script>
 
 </body>
